@@ -47,3 +47,20 @@ h1 {
 #yellow {
     background-color: yellow;
 }
+
+.lightUp {
+    animation-name: lightUpAnimation;
+    animation-duration: 1s;
+}
+
+
+@keyframes lightUpAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+
+}
