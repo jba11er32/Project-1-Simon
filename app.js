@@ -27,6 +27,11 @@ for (let i = 0; i < buttons.length; i++) {
 
 
 
+function addColorToRandomArray (arr) {
+    for (let i = 0; i < 1; i++) {
+        arr.push(`${buttons[Math.floor(Math.random() * buttons.length)].id}`)
+    }
+}
 
 let randomArrayOfButtons = []
 
@@ -35,22 +40,12 @@ let playerArray = []
 
 
 
-
-
-playButton.addEventListener('click', () => {
-    randomArrayOfButtons = []
-    playerArray = []
-
-    for (let i = 0; i < 10; i++) {
-        randomArrayOfButtons.push(`${buttons[Math.floor(Math.random() * buttons.length)].id}`)
-    }
-
 // https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
 // used this thread to set a delay to the for loop light up
     const timer = ms => new Promise(res => setTimeout(res, ms))
     
     async function memoryArray (arr) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < arr.length; i++) {
             // console.log(randomArrayOfButtons[i])
             let button = this.document.getElementById(arr[i])
             button.classList.remove('lightUp')
@@ -61,6 +56,11 @@ playButton.addEventListener('click', () => {
         }
     }
 
+playButton.addEventListener('click', () => {
+    playerArray = []
+
+    addColorToRandomArray(randomArrayOfButtons)
+    
 
     memoryArray(randomArrayOfButtons);
 
@@ -72,18 +72,22 @@ playButton.addEventListener('click', () => {
 
 function compareArrays() {
     if (playerArray.length !== randomArrayOfButtons.length) {
-        alert('Length is not correct')
-        return
+        alert('Incorrect. Start Over!')
+        randomArrayOfButtons = []
+        return 
     }
 
     for (let i = 0; i < playerArray.length; i++) {
         if (playerArray[i] !== randomArrayOfButtons[i]) {
-            alert('Incorrect. Try again!')
+            alert('Incorrect. Start Over!')
+            randomArrayOfButtons = []
             return
         }
     }
     alert('Congrats. Next Stage')
-
+    addColorToRandomArray(randomArrayOfButtons)
+    memoryArray(randomArrayOfButtons)
+    playerArray = []
 }
 
 
