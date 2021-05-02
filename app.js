@@ -17,8 +17,6 @@ function changeOpacity() {
 
 function addColorToPlayerArray (event) {
     playerArray.push(event.target.id)
-    console.log(event.target.id)
-    console.log(playerArray)
 }
 
 
@@ -30,17 +28,19 @@ for (let i = 0; i < buttons.length; i++) {
 
 
 
-const randomArrayOfButtons = []
+let randomArrayOfButtons = []
 
 
-const playerArray = []
+let playerArray = []
 
 
 
 
 
 playButton.addEventListener('click', () => {
-    console.log(playerArray)
+    randomArrayOfButtons = []
+    playerArray = []
+
     for (let i = 0; i < 10; i++) {
         randomArrayOfButtons.push(`${buttons[Math.floor(Math.random() * buttons.length)].id}`)
     }
@@ -64,10 +64,7 @@ playButton.addEventListener('click', () => {
 
     memoryArray(randomArrayOfButtons);
 
-
-    
     console.log(randomArrayOfButtons)
-    console.log(playerArray)
 
 })
 
@@ -75,7 +72,7 @@ playButton.addEventListener('click', () => {
 
 function compareArrays() {
     if (playerArray.length !== randomArrayOfButtons.length) {
-        alert('stupid')
+        alert('Length is not correct')
         return
     }
 
@@ -86,6 +83,7 @@ function compareArrays() {
         }
     }
     alert('Congrats. Next Stage')
+
 }
 
 
