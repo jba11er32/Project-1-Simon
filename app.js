@@ -35,14 +35,32 @@ playButton.addEventListener('click', () => {
 
     }
 
-    for (let i = 0; i < 10; i++) {
-        // console.log(randomArrayOfButtons[i])
-        let button = document.getElementById(randomArrayOfButtons[i])
-        button.classList.remove('lightUp')
-        void button.offsetWidth
-        button.classList.add('lightUp')
+// https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
+// used this thread to set a delay to the for loop light up
+    const timer = ms => new Promise(res => setTimeout(res, ms))
+    
+    async function memoryArray (arr) {
+        for (let i = 0; i < 10; i++) {
+            // console.log(randomArrayOfButtons[i])
+            let button = this.document.getElementById(arr[i])
+            button.classList.remove('lightUp')
+            void button.offsetWidth
+            button.classList.add('lightUp')
+            // console.log(button)
+            await timer(1000)
+        }
     }
 
+
+    memoryArray(randomArrayOfButtons);
+
+
+    let playerArrayOfButtons = []
+
+
+
+
+    
     
     console.log(randomArrayOfButtons)
     randomArrayOfButtons = []
