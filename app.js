@@ -1,9 +1,11 @@
 // Select all the buttons and put in an array. We can then add functionality to each of these buttons
 const buttons = document.querySelectorAll('.button')
-console.log(buttons)
 
-// The play button should
 const playButton = document.querySelector('.play-button')
+
+const checkAnswer = document.querySelector('.check')
+
+
 
 function changeOpacity() {
     this.classList.remove('lightUp')
@@ -13,26 +15,34 @@ function changeOpacity() {
 }
 
 
+function addColorToPlayerArray (event) {
+    playerArray.push(event.target.id)
+    console.log(event.target.id)
+    console.log(playerArray)
+}
 
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', changeOpacity)
+    buttons[i].addEventListener('click', addColorToPlayerArray)
 }
 
 
 
 
+const randomArrayOfButtons = []
+
+
+const playerArray = []
 
 
 
-let randomArrayOfButtons = []
 
 
 playButton.addEventListener('click', () => {
-    
+    console.log(playerArray)
     for (let i = 0; i < 10; i++) {
         randomArrayOfButtons.push(`${buttons[Math.floor(Math.random() * buttons.length)].id}`)
-
     }
 
 // https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
@@ -55,13 +65,28 @@ playButton.addEventListener('click', () => {
     memoryArray(randomArrayOfButtons);
 
 
-    let playerArrayOfButtons = []
-
-
-
-
-    
     
     console.log(randomArrayOfButtons)
-    randomArrayOfButtons = []
+    console.log(playerArray)
+
 })
+
+
+
+function compareArrays() {
+    if (playerArray.length !== randomArrayOfButtons.length) {
+        alert('stupid')
+        return
+    }
+
+    for (let i = 0; i < playerArray.length; i++) {
+        if (playerArray[i] !== randomArrayOfButtons[i]) {
+            alert('Incorrect. Try again!')
+            return
+        }
+    }
+    alert('Congrats. Next Stage')
+}
+
+
+checkAnswer.addEventListener('click', compareArrays)
