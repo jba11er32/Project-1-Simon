@@ -64,7 +64,7 @@ playButton.addEventListener('click', () => {
 
     memoryArray(randomArrayOfButtons);
 
-    console.log(randomArrayOfButtons)
+    // console.log(randomArrayOfButtons)
 
 })
 
