@@ -39,6 +39,10 @@ h1 {
     background: none;
 }
 
+.button:focus, .play-button:focus, .check:focus {
+    outline: none;
+}
+
 .row {
     display: flex;
     flex-direction: column;

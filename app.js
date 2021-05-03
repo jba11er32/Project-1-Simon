@@ -25,6 +25,8 @@ function changeOpacity() {
     // some trick from csstricks
     void this.offsetWidth
     this.classList.add('lightUp')
+    this.style.padding = 0
+    this.style.border = 0
 }
 
 function addColorToPlayerArray (event) {
@@ -77,11 +79,7 @@ playButton.addEventListener('click', () => {
 
     addColorToRandomArray(randomArrayOfButtons)
     
-
     memoryArray(randomArrayOfButtons);
-
-    // console.log(randomArrayOfButtons)
-
 })
 
 
@@ -105,7 +103,6 @@ function compareArrays() {
         }
     }
 
-    alert('Congrats. Next Stage')
     addColorToRandomArray(randomArrayOfButtons)
     memoryArray(randomArrayOfButtons)
     addScore()
