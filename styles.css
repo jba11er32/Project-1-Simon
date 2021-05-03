@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+
 * {
     box-sizing: border-box;
 }
 
 body {
     text-align: center;
+    background-color:rosybrown;
 }
 
 h1 {
-    margin: 100px 20px 75px 20px;  
+    margin: 100px 20px 75px 20px;
+    font-family: 'Zen Dots', cursive; 
 }
 
 .simon {
@@ -16,13 +21,22 @@ h1 {
 }
 
 .play-button {
+    height: 50px;
+    width: 75px;
     margin: 0 0 30px 0;
+    border: none;
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    background-color: black;
 }
 
 .button {
-    height: 150px;
-    width: 150px;
-    opacity: 0.5;
+    height: 200px;
+    width: 200px;
+    opacity: 0.3;
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 .row {
@@ -31,29 +45,40 @@ h1 {
 }
 
 .check {
+    height: 70px;
+    width: 100px;
     margin: 30px 0 0 0;
+    border: none;
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    background-color: black;
 }
 
 .score {
     display: flex;
     justify-content: space-evenly;
     margin: 50px;
+    font-family: 'Zen Dots', cursive;
 }
 
 #red {
     background-color: red;
+    border-top-left-radius: 2000px;
 }
 
 #blue {
     background-color: blue;
+    border-bottom-left-radius: 2000px;
 }
 
 #green {
     background-color: green;
+    border-top-right-radius: 2000px;
 }
 
 #yellow {
     background-color: yellow;
+    border-bottom-right-radius: 2000px;
 }
 
 .lightUp {
@@ -65,10 +90,14 @@ h1 {
 @keyframes lightUpAnimation {
     0% {
         opacity: 1;
+        padding: 0;
+        border: none;
     }
 
     100% {
-        opacity: 0.5;
+        opacity: 0.3;
+        padding: 0;
+        border: none;
     }
 
 }
