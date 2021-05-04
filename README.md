@@ -3,8 +3,11 @@ Project Description
 The player tests their memory by remembering the order at which each color flashes. As the player correctly inputs the order, the length of the memory test increases.
 
 Wire Frames
-IMG_20210429_021910
-IMG_20210429_021905
+![project-1-wireframe](https://user-images.githubusercontent.com/59135798/117080521-dc1ec800-acf2-11eb-9d5d-1908b57b7e9a.jpeg)
+
+Preview
+![Screenshot from 2021-05-04 16-04-19](https://user-images.githubusercontent.com/59135798/117080380-8e09c480-acf2-11eb-9d79-9fa7f7995a60.png)
+![Screenshot from 2021-05-04 16-04-48](https://user-images.githubusercontent.com/59135798/117080384-8fd38800-acf2-11eb-8175-ce855aa1dc6a.png)
 
 User Stories
 As a player, I want to play a game of Simon that tests my memory compared to others.
