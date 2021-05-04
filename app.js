@@ -17,7 +17,21 @@ let score = 0;
 
 let highestScore = 0;
 
+const instructions = document.getElementById('show-instructions')
 
+const modal = document.getElementById('modal')
+
+const closeInstructions = document.getElementById('close')
+
+console.log(closeInstructions)
+
+const openModal = () => {
+  modal.style.display = 'block';
+}
+
+const closeModal = () => {
+  modal.style.display = 'none'
+}
 
 
 function changeOpacity() {
@@ -25,8 +39,6 @@ function changeOpacity() {
     // some trick from csstricks
     void this.offsetWidth
     this.classList.add('lightUp')
-    this.style.padding = 0
-    this.style.border = 0
 }
 
 function addColorToPlayerArray (event) {
@@ -74,17 +86,8 @@ async function memoryArray (arr) {
     }
 }
 
-playButton.addEventListener('click', () => {
-    playerArray = []
 
-    addColorToRandomArray(randomArrayOfButtons)
-    
-    memoryArray(randomArrayOfButtons);
-})
-
-
-
-function compareArrays() {
+async function compareArrays() {
     if (playerArray.length !== randomArrayOfButtons.length) {
         alert('Incorrect. Start Over!')
         randomArrayOfButtons = []
@@ -104,16 +107,35 @@ function compareArrays() {
     }
 
     addColorToRandomArray(randomArrayOfButtons)
-    memoryArray(randomArrayOfButtons)
     addScore()
     playerScore.innerText = `Score: ${score}`
     highScore.innerText = `Your High Score: ${highestScore}`
+    await timer(750)
+    await memoryArray(randomArrayOfButtons)
+    
     
     
     
     playerArray = []
 
 }
+
+
+instructions.addEventListener('click', openModal)
+
+closeInstructions.addEventListener('click', closeModal)
+
+
+
+playButton.addEventListener('click', async function (){
+    playerArray = []
+
+    addColorToRandomArray(randomArrayOfButtons)
+    await timer(750)
+    memoryArray(randomArrayOfButtons);
+})
+
+
 
 
 checkAnswer.addEventListener('click', compareArrays)
