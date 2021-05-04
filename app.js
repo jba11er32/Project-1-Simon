@@ -23,6 +23,8 @@ const modal = document.getElementById('modal')
 
 const closeInstructions = document.getElementById('close')
 
+const directions = document.querySelector('.directions')
+
 console.log(closeInstructions)
 
 const openModal = () => {
@@ -42,6 +44,7 @@ function changeOpacity() {
 }
 
 function addColorToPlayerArray (event) {
+    console.log(event)
     playerArray.push(event.target.id)
 }
 
@@ -52,12 +55,14 @@ function addColorToRandomArray (arr) {
     }
 }
 
+
 function addScore() {
     score++
     if (score > highestScore) {
         highestScore++
     }
 }
+
 
 
 
@@ -89,7 +94,7 @@ async function memoryArray (arr) {
 
 async function compareArrays() {
     if (playerArray.length !== randomArrayOfButtons.length) {
-        alert('Incorrect. Start Over!')
+        directions.innerText = 'Incorrect. Start Over!'
         randomArrayOfButtons = []
         score = 0
         playerScore.innerText = `Score: ${score}`
@@ -98,7 +103,7 @@ async function compareArrays() {
 
     for (let i = 0; i < playerArray.length; i++) {
         if (playerArray[i] !== randomArrayOfButtons[i]) {
-            alert('Incorrect. Start Over!')
+            directions.innerText = 'Incorrect. Start Over!'
             randomArrayOfButtons = []
             score = 0
             playerScore.innerText = `Score: ${score}`
@@ -112,13 +117,12 @@ async function compareArrays() {
     highScore.innerText = `Your High Score: ${highestScore}`
     await timer(750)
     await memoryArray(randomArrayOfButtons)
-    
-    
+
     
     
     playerArray = []
-
 }
+
 
 
 instructions.addEventListener('click', openModal)
@@ -128,13 +132,14 @@ closeInstructions.addEventListener('click', closeModal)
 
 
 playButton.addEventListener('click', async function (){
+    directions.innerText = 'Watch Closely'
     playerArray = []
-
     addColorToRandomArray(randomArrayOfButtons)
     await timer(750)
     memoryArray(randomArrayOfButtons);
-})
+    
 
+})
 
 
 
