@@ -116,6 +116,7 @@ async function compareArrays() {
         randomArrayOfButtons = []
         score = 0
         playerScore.innerText = `Score: ${score}`
+        playButton.style.visibility = 'visible'
         return 
     }
 
@@ -125,6 +126,7 @@ async function compareArrays() {
             randomArrayOfButtons = []
             score = 0
             playerScore.innerText = `Score: ${score}`
+            playButton.style.visibility = 'visible'
             return
         } else {
             addScore()
@@ -137,8 +139,6 @@ async function compareArrays() {
     highScore.innerText = `Your High Score: ${highestScore}`
     await timer(500)
     memoryArray(randomArrayOfButtons)
-
-    
     playerArray = []
 }
 
@@ -151,6 +151,7 @@ closeInstructions.addEventListener('click', closeModal)
 
 playButton.addEventListener('click', async function (){
     directions.innerText = 'Watch Closely'
+    playButton.style.visibility = 'hidden'
     playerArray = []
     addColorToRandomArray(randomArrayOfButtons)
     await timer(750)
