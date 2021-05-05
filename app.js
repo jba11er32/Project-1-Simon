@@ -126,12 +126,13 @@ async function compareArrays() {
             score = 0
             playerScore.innerText = `Score: ${score}`
             return
+        } else {
+            addScore()
         }
     }
     
     
     addColorToRandomArray(randomArrayOfButtons)
-    addScore()
     playerScore.innerText = `Score: ${score}`
     highScore.innerText = `Your High Score: ${highestScore}`
     await timer(500)
