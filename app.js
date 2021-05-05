@@ -126,6 +126,7 @@ async function compareArrays() {
         score = 0
         playerScore.innerText = `Score: ${score}`
         playButton.style.visibility = 'visible'
+        checkAnswer.style.visibility = 'hidden'
         return 
     }
 
@@ -136,6 +137,7 @@ async function compareArrays() {
             score = 0
             playerScore.innerText = `Score: ${score}`
             playButton.style.visibility = 'visible'
+            checkAnswer.style.visibility = 'hidden'
             return
         }
     }
