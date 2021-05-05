@@ -15,7 +15,7 @@ let playerArray = []
 
 let score = 0;
 
-let highestScore = 0;
+let highestScore = parseInt(localStorage.getItem("highscore"));
 
 const instructions = document.getElementById('show-instructions')
 
@@ -25,13 +25,19 @@ const closeInstructions = document.getElementById('close')
 
 const directions = document.querySelector('.directions')
 
-let slowSpeed = 1000
+let slowSpeed = 900
 
 
 
 
+if(highestScore !== 0){
+    if (score > highestScore) {
+        localStorage.setItem("highscore", score);      
+    }
+} else {
+    localStorage.setItem("highscore", score);
+}
 
-console.log(closeInstructions)
 
 const openModal = () => {
   modal.style.display = 'block';
@@ -53,6 +59,8 @@ function addColorToPlayerArray (event) {
     console.log(event)
     playerArray.push(event.target.id)
 }
+
+
 
 
 function addColorToRandomArray (arr) {
@@ -93,15 +101,19 @@ async function memoryArray (arr) {
         void button.offsetWidth
         button.classList.add('lightUp')
         
-        if (arr.length > 4) {
-            slowSpeed = 650
-        } else if (arr.length > 9) {
-            slowSpeed = 350
+
+        if (arr.length > 2) {
+            slowSpeed = 600
+        } else if (arr.length > 4) {
+            slowSpeed = 400
+        } else if (arr.length > 6) {
+            slowSpeed = 250
+        } else if (arr.length > 8) {
+            slowSpeed = 100
         } else {
-            slowSpeed = 1000
+            slowSpeed = 900
         }
         
-        // console.log(button)
         await timer(slowSpeed)
 
     }
@@ -126,19 +138,18 @@ async function compareArrays() {
             return
         }
     }
-
+    
+    
     addColorToRandomArray(randomArrayOfButtons)
     addScore()
     playerScore.innerText = `Score: ${score}`
     highScore.innerText = `Your High Score: ${highestScore}`
-    await timer(750)
-    await memoryArray(randomArrayOfButtons)
+    await timer(500)
+    memoryArray(randomArrayOfButtons)
 
-    
     
     playerArray = []
 }
-
 
 
 instructions.addEventListener('click', openModal)
@@ -153,7 +164,6 @@ playButton.addEventListener('click', async function (){
     addColorToRandomArray(randomArrayOfButtons)
     await timer(750)
     memoryArray(randomArrayOfButtons);
-    
 
 })
 
