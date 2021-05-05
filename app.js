@@ -27,6 +27,17 @@ const directions = document.querySelector('.directions')
 
 let slowSpeed = 900
 
+if (localStorage.getItem('highestScore')) {
+    highScore.innerText = localStorage.getItem('highestScore')
+}
+
+
+
+
+
+
+
+
 
 
 const openModal = () => {
@@ -40,7 +51,6 @@ const closeModal = () => {
 
 function changeOpacity() {
     this.classList.remove('lightUp')
-
     void this.offsetWidth
     this.classList.add('lightUp')
 }
@@ -67,10 +77,12 @@ function addColorToRandomArray (arr) {
 }
 
 
+
 function addScore() {
     score++
     if (score > highestScore) {
         highestScore++
+        localStorage.setItem('highestScore', highestScore)
     }
 }
 
@@ -155,7 +167,7 @@ async function compareArrays() {
     
     addColorToRandomArray(randomArrayOfButtons)
     playerScore.innerText = `Score: ${score}`
-    highScore.innerText = `Your High Score: ${highestScore}`
+    highScore.innerText = `Your High Score: ${localStorage.getItem('highestScore')}`
     await timer(500)
     await memoryArray(randomArrayOfButtons)
     playerArray = []
