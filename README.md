@@ -1,4 +1,4 @@
-# Project-1-Simon
+# Simon
 Project Description
 The player tests their memory by remembering the order at which each color flashes. As the player correctly inputs the order, the length of the memory test increases.
 
