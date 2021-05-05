@@ -25,6 +25,12 @@ const closeInstructions = document.getElementById('close')
 
 const directions = document.querySelector('.directions')
 
+let slowSpeed = 1000
+
+
+
+
+
 console.log(closeInstructions)
 
 const openModal = () => {
@@ -86,8 +92,18 @@ async function memoryArray (arr) {
         button.classList.remove('lightUp')
         void button.offsetWidth
         button.classList.add('lightUp')
+        
+        if (arr.length > 4) {
+            slowSpeed = 650
+        } else if (arr.length > 9) {
+            slowSpeed = 350
+        } else {
+            slowSpeed = 1000
+        }
+        
         // console.log(button)
-        await timer(1000)
+        await timer(slowSpeed)
+
     }
 }
 
