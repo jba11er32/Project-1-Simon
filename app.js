@@ -40,10 +40,17 @@ const closeModal = () => {
 
 function changeOpacity() {
     this.classList.remove('lightUp')
-    // some trick from csstricks
+
     void this.offsetWidth
     this.classList.add('lightUp')
 }
+
+function checkButtonResponse() {
+    this.classList.remove('response')
+    void this.offsetWidth
+    this.classList.add('response')
+}
+
 
 function addColorToPlayerArray (event) {
     console.log(event)
@@ -141,6 +148,8 @@ async function compareArrays() {
             return
         }
     }
+
+    checkAnswer.style.visibility = 'hidden'
     addScore()
     
     
@@ -148,13 +157,10 @@ async function compareArrays() {
     playerScore.innerText = `Score: ${score}`
     highScore.innerText = `Your High Score: ${highestScore}`
     await timer(500)
-    memoryArray(randomArrayOfButtons)
+    await memoryArray(randomArrayOfButtons)
     playerArray = []
+    checkAnswer.style.visibility = 'visible'
 }
-
-
-
-
 
 
 
@@ -175,6 +181,7 @@ closeInstructions.addEventListener('click', closeModal)
 
 
 playButton.addEventListener('click', async function (){
+    // directions.style.display = 'block'
     directions.innerText = 'Watch Closely'
     playButton.style.visibility = 'hidden'
     playerArray = []
