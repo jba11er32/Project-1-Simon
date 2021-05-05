@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+</style>
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    text-align: center;
+    background-color:rosybrown;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+#show-instructions {
+    display: flex;
+}
+
+#modal {
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+    display: none;
+}
+
+#modal-textbox {
+	background-color: white;
+	height: 300px;
+	width: 500px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2%;
+	line-height: 120%;
+	font-family: 'Cabin', sans-serif;
+}
+
+.modal-buttons {
+	padding: 14px 18px;
+	background-color:black;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Zen Dots', cursive;
+	cursor: pointer;
+}
+
+
+h1 {
+    margin: 50px 20px 40px 20px;
+    font-family: 'Zen Dots', cursive;
+    height: 
+}
+
+h2 {
+    font-family: 'Zen Dots', cursive; 
+}
+
+.directions {
+    font-family: 'Zen Dots', cursive;
+    font-size: 20px;
+}
+
+.simon {
+    display: flex;
+    justify-content: center;
+}
+
+.play-button {
+    height: 50px;
+    width: 75px;
+    margin: 0 0 30px 0;
+    border: none;
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    background-color: black;
+}
+
+.button {
+    height: 200px;
+    width: 200px;
+    opacity: 0.3;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.button:focus, .play-button:focus, .check:focus {
+    outline: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.check {
+    height: 60px;
+    width: 100px;
+    margin: 40px 0 40px 0;
+    border: none;
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    background-color: black;
+}
+
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+    font-family: 'Zen Dots', cursive;
+}
+
+#red {
+    background-color: red;
+    border-top-left-radius: 2000px;
+}
+
+#blue {
+    background-color: blue;
+    border-bottom-left-radius: 2000px;
+}
+
+#green {
+    background-color: green;
+    border-top-right-radius: 2000px;
+}
+
+#yellow {
+    background-color: yellow;
+    border-bottom-right-radius: 2000px;
+}
+
+.lightUp {
+    animation-name: lightUpAnimation;
+    animation-duration: 1s;
+}
+
+
+@keyframes lightUpAnimation {
+    0% {
+        opacity: 1;
+        padding: 0;
+        border: none;
+    }
+
+    100% {
+        opacity: 0.3;
+        padding: 0;
+        border: none;
+    }
+
+}
