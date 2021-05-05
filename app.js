@@ -110,6 +110,15 @@ async function memoryArray (arr) {
 }
 
 
+
+
+
+
+
+
+
+
+
 async function compareArrays() {
     if (playerArray.length !== randomArrayOfButtons.length) {
         directions.innerText = 'Incorrect. Start Over!'
@@ -128,10 +137,9 @@ async function compareArrays() {
             playerScore.innerText = `Score: ${score}`
             playButton.style.visibility = 'visible'
             return
-        } else {
-            addScore()
         }
     }
+    addScore()
     
     
     addColorToRandomArray(randomArrayOfButtons)
@@ -141,6 +149,21 @@ async function compareArrays() {
     memoryArray(randomArrayOfButtons)
     playerArray = []
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 instructions.addEventListener('click', openModal)
@@ -155,9 +178,13 @@ playButton.addEventListener('click', async function (){
     playerArray = []
     addColorToRandomArray(randomArrayOfButtons)
     await timer(750)
-    memoryArray(randomArrayOfButtons);
-
+    memoryArray(randomArrayOfButtons)
+    checkAnswer.style.visibility = 'visible'
 })
+
+
+
+
 
 
 

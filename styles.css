@@ -116,6 +116,7 @@ h2 {
     font-family: 'Zen Dots', cursive;
     color: white;
     background-color: black;
+    visibility: hidden;
 }
 
 .score {
