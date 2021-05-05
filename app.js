@@ -15,7 +15,7 @@ let playerArray = []
 
 let score = 0;
 
-let highestScore = parseInt(localStorage.getItem("highscore"));
+let highestScore = 0;
 
 const instructions = document.getElementById('show-instructions')
 
@@ -27,16 +27,6 @@ const directions = document.querySelector('.directions')
 
 let slowSpeed = 900
 
-
-
-
-if(highestScore !== 0){
-    if (score > highestScore) {
-        localStorage.setItem("highscore", score);      
-    }
-} else {
-    localStorage.setItem("highscore", score);
-}
 
 
 const openModal = () => {
