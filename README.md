@@ -2,6 +2,8 @@
 Project Description
 The player tests their memory by remembering the order at which each color flashes. As the player correctly inputs the order, the length of the memory test increases.
 
+Website: https://jleecodes.github.io/Simon/
+
 Wire Frames
 ![project-1-wireframe](https://user-images.githubusercontent.com/59135798/117080521-dc1ec800-acf2-11eb-9d5d-1908b57b7e9a.jpeg)
 
